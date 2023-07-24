@@ -1,0 +1,182 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "f28e3b5bf175b60aa14a26c545856998",
+    "entities": [
+      {
+        "tableName": "login",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `email` TEXT, `numberPhone` TEXT, `password` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "numberPhone",
+            "columnName": "numberPhone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "dataInformasiKaryawan",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idKaryawan` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `namaKaryawan` TEXT, `jenisKelamin` TEXT, `jabatanKaryawan` TEXT, `alamatKaryawan` TEXT, `noTelepon` TEXT, `waktuPencatatan` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "idKaryawan",
+            "columnName": "idKaryawan",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "namaKaryawan",
+            "columnName": "namaKaryawan",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "jenisKelamin",
+            "columnName": "jenisKelamin",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "jabatanKaryawan",
+            "columnName": "jabatanKaryawan",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "alamatKaryawan",
+            "columnName": "alamatKaryawan",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noTelepon",
+            "columnName": "noTelepon",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "waktuPencatatan",
+            "columnName": "waktuPencatatan",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "idKaryawan"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "dataKondisiKaryawan",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idKesehatan` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idKaryawan` INTEGER NOT NULL, `temperature` REAL NOT NULL, `bloodPressure` TEXT, `healthHistory` TEXT, `symptoms` TEXT, `timestamp` TEXT, FOREIGN KEY(`idKaryawan`) REFERENCES `dataInformasiKaryawan`(`idKaryawan`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "idKesehatan",
+            "columnName": "idKesehatan",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idKaryawan",
+            "columnName": "idKaryawan",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "temperature",
+            "columnName": "temperature",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bloodPressure",
+            "columnName": "bloodPressure",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "healthHistory",
+            "columnName": "healthHistory",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "symptoms",
+            "columnName": "symptoms",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "idKesehatan"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "dataInformasiKaryawan",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "idKaryawan"
+            ],
+            "referencedColumns": [
+              "idKaryawan"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f28e3b5bf175b60aa14a26c545856998')"
+    ]
+  }
+}

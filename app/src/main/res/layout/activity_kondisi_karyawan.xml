@@ -1,0 +1,88 @@
+<!-- layout_data_kesehatan_karyawan.xml -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Field Suhu Tubuh -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suhu Tubuh (Celsius):"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextTemperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Masukkan suhu tubuh" />
+
+    <!-- Field Tekanan Darah -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tekanan Darah:"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextBloodPressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Misal: 120/80" />
+
+    <!-- Field Riwayat Kesehatan -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Riwayat Kesehatan:"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextHealthHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan riwayat kesehatan" />
+
+    <!-- Field Gejala -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gejala:"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextSymptoms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan gejala kesehatan" />
+
+    <!-- Field Waktu Pencatatan -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Waktu Pencatatan:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewTimestamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FF8C00"
+        android:text="Belum tercatat" />
+
+    <!-- Tombol Simpan -->
+    <Button
+        android:id="@+id/buttonSimpan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="Simpan"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FF8C00" />
+
+</LinearLayout>
